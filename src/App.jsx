@@ -18,8 +18,12 @@ const App = () => {
             <Heading as="h1">Haven Resort</Heading>
             <div>
               <Heading as="h2">Check in and Check out</Heading>
-              <Button>Check in</Button>
-              <Button>Check out</Button>
+              <Button variation="primary" size="medium">
+                Check in
+              </Button>
+              <Button variation="secondary" size="small">
+                Check out
+              </Button>
             </div>
           </Row>
           <Row type="vertical">
