@@ -7,6 +7,7 @@ import Header from './Header';
 const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem;
+  overflow: scroll;
 `;
 
 const StyleAppLayout = styled.div`
