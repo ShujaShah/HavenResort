@@ -91,7 +91,7 @@ export default function CabinRow({ cabin }) {
           <button onClick={() => deleteCabin(cabinId)} disabled={isDeleting}>
             <HiTrash />
           </button>
-          <button onClick={handleDuplicate}>
+          <button disabled={isCreating} onClick={handleDuplicate}>
             <HiSquare2Stack />
           </button>
         </div>
