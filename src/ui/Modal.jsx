@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { HiXMark } from 'react-icons/hi2';
 import styled from 'styled-components';
 
@@ -51,7 +52,10 @@ const Button = styled.button`
 `;
 
 function Modal({ children, onClose }) {
-  return (
+  // we use createPortal to make sure the modal sits as a direct child element of the body element in DOM
+  // rather than nested inside the DOM Structure
+  // In our component tree it will still sit in the exact same place, as it is still a child element
+  return createPortal(
     <Overlay>
       <StyledModal>
         <Button onClick={onClose}>
@@ -59,7 +63,8 @@ function Modal({ children, onClose }) {
         </Button>
         <div>{children}</div>
       </StyledModal>
-    </Overlay>
+    </Overlay>,
+    document.body
   );
 }
 
