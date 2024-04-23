@@ -9,6 +9,7 @@ import FormRow from '../../ui/FormRow';
 
 import { useCreateCabin } from './useCreateCabin';
 import { useEditCabin } from './useEditCabin';
+import Spinner from '../../ui/Spinner';
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { createCabin, isCreating } = useCreateCabin();
@@ -30,6 +31,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
     if (isEditSession)
       editCabin(
         { newCabinData: { ...data, image }, id: editId },
+
         {
           onSuccess: (data) => {
             reset();
@@ -53,7 +55,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   function onError(errors) {
     console.log(errors);
   }
-
   return (
     <Form
       onSubmit={handleSubmit(onSubmit, onError)}
@@ -149,7 +150,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         >
           Cancel
         </Button>
-        <Button disabled={isWorking}>
+        <Button disabled={isCreating}>
           {isEditSession ? 'Edit Cabin' : 'Create New Cabin'}
         </Button>
       </FormRow>
