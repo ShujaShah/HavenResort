@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Spinner from '../../ui/Spinner';
 import CabinRow from './CabinRow';
 import { useCabins } from './useCabins';
@@ -28,13 +29,13 @@ const TableHeader = styled.header`
 `;
 
 function CabinTable() {
-  const { isLoading, cabins, error } = useCabins();
+  const { isLoading, cabins } = useCabins();
 
   if (isLoading) return <Spinner />;
 
   return (
     <Table role="table">
-      <TableHeader>
+      <TableHeader role="row">
         <div></div>
         <div>Cabin</div>
         <div>Capacity</div>
