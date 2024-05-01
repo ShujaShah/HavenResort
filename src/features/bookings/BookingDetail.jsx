@@ -13,6 +13,7 @@ import { useBooking } from './useBooking';
 import Spinner from '../../ui/Spinner';
 
 import Empty from '../../ui/Empty';
+import { useNavigate } from 'react-router-dom';
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ function BookingDetail() {
   console.log('here is the booking', booking);
 
   const moveBack = useMoveBack();
+  const navigate = useNavigate();
 
   if (isLoading) return <Spinner />;
   if (!booking) return <Empty resourceName="booking" />;
